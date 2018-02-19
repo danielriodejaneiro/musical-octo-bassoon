@@ -63,6 +63,8 @@ namespace WcfServiceTodo
             {
                 try
                 {
+                    //int iid = Convert.ToInt32(todo.Id);
+
                     TaskEntity task = entity.TaskEntities.Single(pe => pe.id == todo.Id);
                     task.id = todo.Id;
                     task.title = todo.Title;
@@ -82,11 +84,13 @@ namespace WcfServiceTodo
             };
         }
 
-        public Todo find(int id)
+        public Todo find(string id)
         {
             using (dev101Entities entity = new dev101Entities())
             {
-                return entity.TaskEntities.Where(pe => pe.id == id).Select(pe => new Todo
+                int iid = Convert.ToInt32(id);
+                
+                return entity.TaskEntities.Where(pe => pe.id == iid).Select(pe => new Todo
                 {
                     Id = pe.id,
                     Title = pe.title,

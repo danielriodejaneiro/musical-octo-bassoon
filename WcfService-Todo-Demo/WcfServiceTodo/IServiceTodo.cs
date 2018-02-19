@@ -18,7 +18,7 @@ namespace WcfServiceTodo
 
         [OperationContract]
         [WebInvoke(Method = "GET", UriTemplate = "find/{id}", RequestFormat = WebMessageFormat.Json)]
-        Todo find(int id);
+        Todo find(string id);
 
         [OperationContract]
         [WebInvoke(Method = "POST", UriTemplate = "create", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]

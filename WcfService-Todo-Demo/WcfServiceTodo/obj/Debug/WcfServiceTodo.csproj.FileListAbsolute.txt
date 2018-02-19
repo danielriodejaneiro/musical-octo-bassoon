@@ -5,7 +5,6 @@ C:\Users\DanielSantos\Desktop\code\todo-demo-back\WcfService-Todo-Demo\WcfServic
 C:\Users\DanielSantos\Desktop\code\todo-demo-back\WcfService-Todo-Demo\WcfServiceTodo\bin\EntityFramework.SqlServer.dll
 C:\Users\DanielSantos\Desktop\code\todo-demo-back\WcfService-Todo-Demo\WcfServiceTodo\bin\EntityFramework.xml
 C:\Users\DanielSantos\Desktop\code\todo-demo-back\WcfService-Todo-Demo\WcfServiceTodo\bin\EntityFramework.SqlServer.xml
-C:\Users\DanielSantos\Desktop\code\todo-demo-back\WcfService-Todo-Demo\WcfServiceTodo\obj\Debug\WcfServiceTodo.csprojResolveAssemblyReference.cache
 C:\Users\DanielSantos\Desktop\code\todo-demo-back\WcfService-Todo-Demo\WcfServiceTodo\obj\Debug\WcfServiceTodo.csproj.CoreCompileInputs.cache
 C:\Users\DanielSantos\Desktop\code\todo-demo-back\WcfService-Todo-Demo\WcfServiceTodo\obj\Debug\WcfServiceTodo.dll
 C:\Users\DanielSantos\Desktop\code\todo-demo-back\WcfService-Todo-Demo\WcfServiceTodo\obj\Debug\WcfServiceTodo.pdb
