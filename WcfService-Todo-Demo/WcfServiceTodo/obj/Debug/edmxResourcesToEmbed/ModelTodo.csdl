@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TodoEntitiesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="TaskEntity">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="title" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="datedue" Type="DateTime" Precision="0" />
+    <Property Name="datedone" Type="DateTime" Precision="0" />
+    <Property Name="tags" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="author" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="executor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="dev101Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TaskEntities" EntityType="TodoEntitiesModel.TaskEntity" />
+  </EntityContainer>
+</Schema>
