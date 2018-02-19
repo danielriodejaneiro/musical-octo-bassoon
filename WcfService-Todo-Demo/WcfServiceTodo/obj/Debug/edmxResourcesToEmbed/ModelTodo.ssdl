@@ -1,31 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="TodoEntitiesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'dev101.dbo.Tasks' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Tasks">
     <Key>
       <PropertyRef Name="id" />
-      <PropertyRef Name="title" />
     </Key>
     <Property Name="id" Type="int" Nullable="false" />
     <Property Name="title" Type="varchar" MaxLength="100" Nullable="false" />
-    <Property Name="datedue" Type="date" />
-    <Property Name="datedone" Type="date" />
+    <Property Name="datedue" Type="varchar" MaxLength="10" />
+    <Property Name="datedone" Type="varchar" MaxLength="10" />
     <Property Name="tags" Type="varchar" MaxLength="100" />
     <Property Name="author" Type="varchar" MaxLength="100" />
     <Property Name="executor" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityContainer Name="TodoEntitiesModelStoreContainer">
-    <EntitySet Name="Tasks" EntityType="Self.Tasks" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Tasks].[id] AS [id], 
-    [Tasks].[title] AS [title], 
-    [Tasks].[datedue] AS [datedue], 
-    [Tasks].[datedone] AS [datedone], 
-    [Tasks].[tags] AS [tags], 
-    [Tasks].[author] AS [author], 
-    [Tasks].[executor] AS [executor]
-    FROM [dbo].[Tasks] AS [Tasks]</DefiningQuery>
-    </EntitySet>
+    <EntitySet Name="Tasks" EntityType="Self.Tasks" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

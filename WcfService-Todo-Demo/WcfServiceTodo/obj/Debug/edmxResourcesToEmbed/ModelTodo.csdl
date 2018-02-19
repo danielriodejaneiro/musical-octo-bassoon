@@ -3,12 +3,11 @@
   <EntityType Name="TaskEntity">
     <Key>
       <PropertyRef Name="id" />
-      <PropertyRef Name="title" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" />
     <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="datedue" Type="DateTime" Precision="0" />
-    <Property Name="datedone" Type="DateTime" Precision="0" />
+    <Property Name="datedue" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="datedone" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
     <Property Name="tags" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="author" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <Property Name="executor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />

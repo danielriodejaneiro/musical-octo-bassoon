@@ -13,11 +13,11 @@ namespace WcfServiceTodo
     public interface IServiceTodo
     {
         [OperationContract]
-        [WebInvoke(Method = "GET", UriTemplate = "findall", RequestFormat = WebMessageFormat.Json)]
+        [WebInvoke(Method = "GET", UriTemplate = "findall", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         List<Todo> findAll();
 
         [OperationContract]
-        [WebInvoke(Method = "GET", UriTemplate = "find/{id}", RequestFormat = WebMessageFormat.Json)]
+        [WebInvoke(Method = "GET", UriTemplate = "find/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         Todo find(string id);
 
         [OperationContract]

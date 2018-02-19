@@ -97,8 +97,8 @@ namespace WcfServiceTodo
                     Tags = pe.tags,
                     Author = pe.author,
                     Executor = pe.executor,
-                    DateDue = (DateTime)pe.datedue,
-                    DateDone = (DateTime)pe.datedone
+                    DateDue = pe.datedue,
+                    DateDone = pe.datedone
                 }).First();
             };
         }
@@ -114,8 +114,8 @@ namespace WcfServiceTodo
                     Tags = pe.tags,
                     Author = pe.author,
                     Executor = pe.executor,
-                    DateDue = (DateTime) pe.datedue,
-                    DateDone = (DateTime) pe.datedone
+                    DateDue = pe.datedue,
+                    DateDone = pe.datedone
                 }).ToList();
             };
         }

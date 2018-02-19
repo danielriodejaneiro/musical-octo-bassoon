@@ -16,8 +16,8 @@ namespace WcfServiceTodo
     {
         public int id { get; set; }
         public string title { get; set; }
-        public Nullable<System.DateTime> datedue { get; set; }
-        public Nullable<System.DateTime> datedone { get; set; }
+        public string datedue { get; set; }
+        public string datedone { get; set; }
         public string tags { get; set; }
         public string author { get; set; }
         public string executor { get; set; }

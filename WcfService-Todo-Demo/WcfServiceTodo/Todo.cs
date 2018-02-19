@@ -37,13 +37,13 @@ namespace WcfServiceTodo
             set;
         }
 
-        public DateTime DateDue
+        public string DateDue
         {
             get;
             set;
         }
 
-        public DateTime DateDone
+        public string DateDone
         {
             get;
             set;
