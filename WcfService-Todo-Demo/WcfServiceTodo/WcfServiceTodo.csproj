@@ -106,6 +106,7 @@
     <Compile Include="TaskEntity.cs">
       <DependentUpon>ModelTodo.tt</DependentUpon>
     </Compile>
+    <Compile Include="Todo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
