@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="TodoEntitiesModelStoreContainer" CdmEntityContainer="dev101Entities">
-    <EntitySetMapping Name="TaskEntities">
-      <EntityTypeMapping TypeName="TodoEntitiesModel.TaskEntity">
-        <MappingFragment StoreEntitySet="Tasks">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="title" ColumnName="title" />
-          <ScalarProperty Name="datedue" ColumnName="datedue" />
-          <ScalarProperty Name="datedone" ColumnName="datedone" />
-          <ScalarProperty Name="tags" ColumnName="tags" />
-          <ScalarProperty Name="author" ColumnName="author" />
+    <EntitySetMapping Name="MyTodosTables">
+      <EntityTypeMapping TypeName="TodoEntitiesModel.MyTodosTable">
+        <MappingFragment StoreEntitySet="MyTodosTable">
           <ScalarProperty Name="executor" ColumnName="executor" />
+          <ScalarProperty Name="author" ColumnName="author" />
+          <ScalarProperty Name="tags" ColumnName="tags" />
+          <ScalarProperty Name="datedone" ColumnName="datedone" />
+          <ScalarProperty Name="datedue" ColumnName="datedue" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="id" ColumnName="id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

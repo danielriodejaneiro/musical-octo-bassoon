@@ -25,6 +25,6 @@ namespace WcfServiceTodo
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<TaskEntity> TaskEntities { get; set; }
+        public virtual DbSet<MyTodosTable> MyTodosTables { get; set; }
     }
 }

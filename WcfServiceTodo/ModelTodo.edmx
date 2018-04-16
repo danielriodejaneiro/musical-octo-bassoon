@@ -4,57 +4,71 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="TodoEntitiesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="Tasks">
+    <Schema Namespace="TodoEntitiesModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'WCF101.dbo.MyTodosTable' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MyTodosTable">
           <Key>
             <PropertyRef Name="id" />
+            <PropertyRef Name="title" />
           </Key>
           <Property Name="id" Type="int" Nullable="false" />
-          <Property Name="title" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="title" Type="nchar" MaxLength="50" Nullable="false" />
           <Property Name="datedue" Type="varchar" MaxLength="10" />
           <Property Name="datedone" Type="varchar" MaxLength="10" />
-          <Property Name="tags" Type="varchar" MaxLength="100" />
-          <Property Name="author" Type="varchar" MaxLength="100" />
-          <Property Name="executor" Type="varchar" MaxLength="100" />
+          <Property Name="tags" Type="varchar" MaxLength="50" />
+          <Property Name="author" Type="varchar" MaxLength="15" />
+          <Property Name="executor" Type="varchar" MaxLength="15" />
         </EntityType>
         <EntityContainer Name="TodoEntitiesModelStoreContainer">
-          <EntitySet Name="Tasks" EntityType="Self.Tasks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MyTodosTable" EntityType="Self.MyTodosTable" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [MyTodosTable].[id] AS [id], 
+    [MyTodosTable].[title] AS [title], 
+    [MyTodosTable].[datedue] AS [datedue], 
+    [MyTodosTable].[datedone] AS [datedone], 
+    [MyTodosTable].[tags] AS [tags], 
+    [MyTodosTable].[author] AS [author], 
+    [MyTodosTable].[executor] AS [executor]
+    FROM [dbo].[MyTodosTable] AS [MyTodosTable]</DefiningQuery>
+          </EntitySet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="TodoEntitiesModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="TaskEntity">
+        <EntityContainer Name="dev101Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="MyTodosTables" EntityType="TodoEntitiesModel.MyTodosTable" />
+        </EntityContainer>
+        <EntityType Name="MyTodosTable">
           <Key>
             <PropertyRef Name="id" />
+            <PropertyRef Name="title" />
           </Key>
           <Property Name="id" Type="Int32" Nullable="false" />
-          <Property Name="title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="datedue" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
-          <Property Name="datedone" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
-          <Property Name="tags" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="author" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="executor" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="title" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="datedue" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="datedone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="tags" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="author" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="executor" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityContainer Name="dev101Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="TaskEntities" EntityType="TodoEntitiesModel.TaskEntity" />
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="TodoEntitiesModelStoreContainer" CdmEntityContainer="dev101Entities">
-          <EntitySetMapping Name="TaskEntities">
-            <EntityTypeMapping TypeName="TodoEntitiesModel.TaskEntity">
-              <MappingFragment StoreEntitySet="Tasks">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="title" ColumnName="title" />
-                <ScalarProperty Name="datedue" ColumnName="datedue" />
-                <ScalarProperty Name="datedone" ColumnName="datedone" />
-                <ScalarProperty Name="tags" ColumnName="tags" />
-                <ScalarProperty Name="author" ColumnName="author" />
+        <EntitySetMapping Name="MyTodosTables">
+            <EntityTypeMapping TypeName="TodoEntitiesModel.MyTodosTable">
+              <MappingFragment StoreEntitySet="MyTodosTable">
                 <ScalarProperty Name="executor" ColumnName="executor" />
+                <ScalarProperty Name="author" ColumnName="author" />
+                <ScalarProperty Name="tags" ColumnName="tags" />
+                <ScalarProperty Name="datedone" ColumnName="datedone" />
+                <ScalarProperty Name="datedue" ColumnName="datedue" />
+                <ScalarProperty Name="title" ColumnName="title" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

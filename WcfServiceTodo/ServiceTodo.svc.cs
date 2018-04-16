@@ -20,7 +20,7 @@ namespace WcfServiceTodo
             {
                 try
                 {
-                    TaskEntity task = new TaskEntity();
+                    MyTodosTable task = new MyTodosTable();
                     task.id = todo.Id;
                     task.title = todo.Title;
                     task.tags = todo.Tags;
@@ -29,7 +29,7 @@ namespace WcfServiceTodo
                     task.datedue = todo.DateDue;
                     task.datedone = todo.DateDone;
 
-                    entity.TaskEntities.Add(task);
+                    entity.MyTodosTables.Add(task);
                     entity.SaveChanges();
                     return true;
                 }
@@ -46,9 +46,9 @@ namespace WcfServiceTodo
             {
                 try
                 {
-                    TaskEntity task = entity.TaskEntities.Single(pe => pe.id == todo.Id);
+                    MyTodosTable task = entity.MyTodosTables.Single(pe => pe.id == todo.Id);
 
-                    entity.TaskEntities.Remove(task);
+                    entity.MyTodosTables.Remove(task);
 
                     entity.SaveChanges();
                     return true;
@@ -68,7 +68,7 @@ namespace WcfServiceTodo
                 {
                     //int iid = Convert.ToInt32(todo.Id);
 
-                    TaskEntity task = entity.TaskEntities.Single(pe => pe.id == todo.Id);
+                    MyTodosTable task = entity.MyTodosTables.Single(pe => pe.id == todo.Id);
                     task.id = todo.Id;
                     task.title = todo.Title;
                     task.tags = todo.Tags;
@@ -93,7 +93,7 @@ namespace WcfServiceTodo
             {
                 int iid = Convert.ToInt32(id);
                 
-                return entity.TaskEntities.Where(pe => pe.id == iid).Select(pe => new Todo
+                return entity.MyTodosTables.Where(pe => pe.id == iid).Select(pe => new Todo
                 {
                     Id = pe.id,
                     Title = pe.title,
@@ -110,7 +110,7 @@ namespace WcfServiceTodo
         {
             using (dev101Entities entity = new dev101Entities())
             {
-                return entity.TaskEntities.Select(pe => new Todo
+                return entity.MyTodosTables.Select(pe => new Todo
                 {
                     Id = pe.id,
                     Title = pe.title,

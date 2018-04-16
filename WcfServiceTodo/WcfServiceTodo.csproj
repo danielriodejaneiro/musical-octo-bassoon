@@ -116,12 +116,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModelTodo.edmx</DependentUpon>
     </Compile>
+    <Compile Include="MyTodosTable.cs">
+      <DependentUpon>ModelTodo.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceTodo.svc.cs">
       <DependentUpon>ServiceTodo.svc</DependentUpon>
-    </Compile>
-    <Compile Include="TaskEntity.cs">
-      <DependentUpon>ModelTodo.tt</DependentUpon>
     </Compile>
     <Compile Include="Todo.cs" />
   </ItemGroup>

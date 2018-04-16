@@ -12,7 +12,7 @@ namespace WcfServiceTodo
     using System;
     using System.Collections.Generic;
     
-    public partial class TaskEntity
+    public partial class MyTodosTable
     {
         public int id { get; set; }
         public string title { get; set; }
