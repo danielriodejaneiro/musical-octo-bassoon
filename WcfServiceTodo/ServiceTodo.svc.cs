@@ -9,9 +9,8 @@ using System.Web.Http.Cors;
 
 namespace WcfServiceTodo
 {
-    [EnableCors(origins: "*", headers: "*", methods: "*")]
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "ServiceTodo" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select ServiceTodo.svc or ServiceTodo.svc.cs at the Solution Explorer and start debugging.
+    //[EnableCors(origins: "*", headers: "*", methods: "*")]
+    
     public class ServiceTodo : IServiceTodo
     {
         public bool create(Todo todo)
@@ -123,11 +122,11 @@ namespace WcfServiceTodo
             };
         }
 
-        public void GetOptions()
-        {
-            WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
-            WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
-            WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Headers", "Content-Type");
-        }
+        //public void GetOptions()
+        //{
+        //    WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
+        //    WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
+        //    WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Headers", "Content-Type");
+        //}
     }
 }

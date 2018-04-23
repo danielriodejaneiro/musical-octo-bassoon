@@ -54,65 +54,65 @@ namespace WcfServiceTodo
         }
     }
 
-    public class CustomHeaderMessageInspector : IDispatchMessageInspector
-    {
-        Dictionary<string, string> requiredHeaders;
-        public CustomHeaderMessageInspector(Dictionary<string, string> headers)
-        {
-            requiredHeaders = headers ?? new Dictionary<string, string>();
-        }
+    //public class CustomHeaderMessageInspector : IDispatchMessageInspector
+    //{
+    //    Dictionary<string, string> requiredHeaders;
+    //    public CustomHeaderMessageInspector(Dictionary<string, string> headers)
+    //    {
+    //        requiredHeaders = headers ?? new Dictionary<string, string>();
+    //    }
 
-        public object AfterReceiveRequest(ref System.ServiceModel.Channels.Message request, System.ServiceModel.IClientChannel channel, System.ServiceModel.InstanceContext instanceContext)
-        {
-            return null;
-        }
+    //    public object AfterReceiveRequest(ref System.ServiceModel.Channels.Message request, System.ServiceModel.IClientChannel channel, System.ServiceModel.InstanceContext instanceContext)
+    //    {
+    //        return null;
+    //    }
 
-        public void BeforeSendReply(ref System.ServiceModel.Channels.Message reply, object correlationState)
-        {
-            var httpHeader = reply.Properties["httpResponse"] as HttpResponseMessageProperty;
-            foreach (var item in requiredHeaders)
-            {
-                httpHeader.Headers.Add(item.Key, item.Value);
-            }
-        }
-    }
+    //    public void BeforeSendReply(ref System.ServiceModel.Channels.Message reply, object correlationState)
+    //    {
+    //        var httpHeader = reply.Properties["httpResponse"] as HttpResponseMessageProperty;
+    //        foreach (var item in requiredHeaders)
+    //        {
+    //            httpHeader.Headers.Add(item.Key, item.Value);
+    //        }
+    //    }
+    //}
 
-    public class EnableCrossOriginResourceSharingBehavior : BehaviorExtensionElement, IEndpointBehavior
-    {
-        public void AddBindingParameters(ServiceEndpoint endpoint, System.ServiceModel.Channels.BindingParameterCollection bindingParameters)
-        {
+    //public class EnableCrossOriginResourceSharingBehavior : BehaviorExtensionElement, IEndpointBehavior
+    //{
+    //    public void AddBindingParameters(ServiceEndpoint endpoint, System.ServiceModel.Channels.BindingParameterCollection bindingParameters)
+    //    {
 
-        }
+    //    }
 
-        public void ApplyClientBehavior(ServiceEndpoint endpoint, System.ServiceModel.Dispatcher.ClientRuntime clientRuntime)
-        {
+    //    public void ApplyClientBehavior(ServiceEndpoint endpoint, System.ServiceModel.Dispatcher.ClientRuntime clientRuntime)
+    //    {
 
-        }
+    //    }
 
-        public void ApplyDispatchBehavior(ServiceEndpoint endpoint, System.ServiceModel.Dispatcher.EndpointDispatcher endpointDispatcher)
-        {
-            var requiredHeaders = new Dictionary<string, string>();
+    //    public void ApplyDispatchBehavior(ServiceEndpoint endpoint, System.ServiceModel.Dispatcher.EndpointDispatcher endpointDispatcher)
+    //    {
+    //        var requiredHeaders = new Dictionary<string, string>();
 
-            requiredHeaders.Add("Access-Control-Allow-Origin", "*");
-            requiredHeaders.Add("Access-Control-Request-Method", "POST,GET,PUT,DELETE,OPTIONS");
-            requiredHeaders.Add("Access-Control-Allow-Headers", "X-Requested-With,Content-Type");
+    //        requiredHeaders.Add("Access-Control-Allow-Origin", "*");
+    //        requiredHeaders.Add("Access-Control-Request-Method", "POST,GET,PUT,DELETE,OPTIONS");
+    //        requiredHeaders.Add("Access-Control-Allow-Headers", "X-Requested-With,Content-Type");
 
-            endpointDispatcher.DispatchRuntime.MessageInspectors.Add(new CustomHeaderMessageInspector(requiredHeaders));
-        }
+    //        endpointDispatcher.DispatchRuntime.MessageInspectors.Add(new CustomHeaderMessageInspector(requiredHeaders));
+    //    }
 
-        public void Validate(ServiceEndpoint endpoint)
-        {
+    //    public void Validate(ServiceEndpoint endpoint)
+    //    {
 
-        }
+    //    }
 
-        public override Type BehaviorType
-        {
-            get { return typeof(EnableCrossOriginResourceSharingBehavior); }
-        }
+    //    public override Type BehaviorType
+    //    {
+    //        get { return typeof(EnableCrossOriginResourceSharingBehavior); }
+    //    }
 
-        protected override object CreateBehavior()
-        {
-            return new EnableCrossOriginResourceSharingBehavior();
-        }
-    }
+    //    protected override object CreateBehavior()
+    //    {
+    //        return new EnableCrossOriginResourceSharingBehavior();
+    //    }
+    //}
 }

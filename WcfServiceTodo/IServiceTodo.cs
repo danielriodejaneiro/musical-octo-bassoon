@@ -32,8 +32,8 @@ namespace WcfServiceTodo
         [WebInvoke(Method = "DELETE", UriTemplate = "delete", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         bool delete(Todo todo);
 
-        [OperationContract]
-        [WebInvoke(Method = "OPTIONS", UriTemplate = "*")]
-        void GetOptions();
+        //[OperationContract]
+        //[WebInvoke(Method = "OPTIONS", UriTemplate = "*")]
+        //void GetOptions();
     }
 }

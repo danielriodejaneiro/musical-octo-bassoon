@@ -6,7 +6,6 @@
   <EntityType Name="MyTodosTable">
     <Key>
       <PropertyRef Name="id" />
-      <PropertyRef Name="title" />
     </Key>
     <Property Name="id" Type="Int32" Nullable="false" />
     <Property Name="title" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
