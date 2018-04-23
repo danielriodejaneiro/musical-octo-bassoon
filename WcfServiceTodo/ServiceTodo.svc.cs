@@ -5,12 +5,10 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
-using System.Web.Http.Cors;
 
 namespace WcfServiceTodo
 {
-    //[EnableCors(origins: "*", headers: "*", methods: "*")]
-    
+
     public class ServiceTodo : IServiceTodo
     {
         public bool create(Todo todo)
@@ -30,6 +28,9 @@ namespace WcfServiceTodo
 
                     entity.MyTodosTables.Add(task);
                     entity.SaveChanges();
+
+                    GetOptions();
+
                     return true;
                 }
                 catch
@@ -122,11 +123,11 @@ namespace WcfServiceTodo
             };
         }
 
-        //public void GetOptions()
-        //{
-        //    WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
-        //    WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
-        //    WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Headers", "Content-Type");
-        //}
+        public void GetOptions()
+        {
+            WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Origin", "*");
+            WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Methods", "POST, GET, OPTIONS");
+            WebOperationContext.Current.OutgoingResponse.Headers.Add("Access-Control-Allow-Headers", "Content-Type");
+        }
     }
 }

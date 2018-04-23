@@ -5,10 +5,11 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
+using System.Web.Http.Cors;
 
 namespace WcfServiceTodo
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IServiceTodo" in both code and config file together.
+
     [ServiceContract]
     public interface IServiceTodo
     {
@@ -20,7 +21,9 @@ namespace WcfServiceTodo
         [WebInvoke(Method = "GET", UriTemplate = "find/{id}", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         Todo find(string id);
 
+        //ADDED SOME CORS TAGGING
         [OperationContract]
+        [EnableCors("*", "*", "*")]
         [WebInvoke(Method = "POST", UriTemplate = "create", RequestFormat = WebMessageFormat.Json, ResponseFormat = WebMessageFormat.Json)]
         bool create(Todo todo);
 
